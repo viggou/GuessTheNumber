@@ -76,7 +76,7 @@ class ViewController: NSViewController {
         feedbackLabel.stringValue = "To guess, type a number in the text field and press the \"Guess\" button."
         triesLabel.stringValue = "Times guessed: 0"
         tries = 0
-        print("The number is \(numberToBeGuessed).")
+        // print("The number is \(numberToBeGuessed).")
     }
     
     func updateTries() {
