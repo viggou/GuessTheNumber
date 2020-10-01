@@ -13,6 +13,7 @@
 		E40B6B842526760A006B3243 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40B6B822526760A006B3243 /* Main.storyboard */; };
 		E40B6B902526760A006B3243 /* Guess_The_NumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B6B8F2526760A006B3243 /* Guess_The_NumberTests.swift */; };
 		E40B6B9B2526760A006B3243 /* Guess_The_NumberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B6B9A2526760A006B3243 /* Guess_The_NumberUITests.swift */; };
+		E4E7417B2526A27100DF26D5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E4E7417A2526A27100DF26D5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		E40B6B962526760A006B3243 /* Guess The NumberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Guess The NumberUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40B6B9A2526760A006B3243 /* Guess_The_NumberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess_The_NumberUITests.swift; sourceTree = "<group>"; };
 		E40B6B9C2526760A006B3243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E7417A2526A27100DF26D5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		E40B6B7B25267609006B3243 /* Guess The Number */ = {
 			isa = PBXGroup;
 			children = (
+				E4E7417A2526A27100DF26D5 /* README.md */,
 				E40B6B7C25267609006B3243 /* AppDelegate.swift */,
 				E40B6B7E25267609006B3243 /* ViewController.swift */,
 				E40B6B802526760A006B3243 /* Assets.xcassets */,
@@ -227,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E7417B2526A27100DF26D5 /* README.md in Resources */,
 				E40B6B812526760A006B3243 /* Assets.xcassets in Resources */,
 				E40B6B842526760A006B3243 /* Main.storyboard in Resources */,
 			);
