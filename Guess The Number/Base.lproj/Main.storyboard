@@ -23,7 +23,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences… (not implemented yet)" enabled="NO" keyEquivalent="," id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -68,6 +68,12 @@
                                         <menuItem title="Reset" keyEquivalent="r" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="resetMenuBar:" target="Ady-hI-5gd" id="0gQ-F1-7NC"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="BXs-w7-prq"/>
+                                        <menuItem title="Close Window" keyEquivalent="w" id="mkR-NA-Dyv">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="QdN-DE-AtM"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -190,7 +196,7 @@ DQ
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4eL-3T-gV3">
                                 <rect key="frame" x="128" y="37" width="236" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" alignment="center" title="Label" id="d2S-NQ-IIx">
+                                <textFieldCell key="cell" alignment="center" title="feedbackLabel" id="d2S-NQ-IIx">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -199,7 +205,7 @@ DQ
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gJ-nA-BwD">
                                 <rect key="frame" x="116" y="200" width="248" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" alignment="center" title="Label" id="vUL-hM-6bR">
+                                <textFieldCell key="cell" alignment="center" title="guideLabel" id="vUL-hM-6bR">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -220,7 +226,7 @@ DQ
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLB-vE-NqI">
                                 <rect key="frame" x="59" y="175" width="127" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Label" id="5cy-5V-S9F">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="triesLabel" id="5cy-5V-S9F">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

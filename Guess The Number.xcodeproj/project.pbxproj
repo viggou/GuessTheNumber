@@ -428,6 +428,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Guess The Number/Guess_The_Number.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5ZB6BPQ4CV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Guess The Number/Info.plist";
@@ -435,7 +436,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yaypixxo.Guess-The-Number";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -450,6 +452,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Guess The Number/Guess_The_Number.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5ZB6BPQ4CV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Guess The Number/Info.plist";
@@ -457,7 +460,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yaypixxo.Guess-The-Number";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
