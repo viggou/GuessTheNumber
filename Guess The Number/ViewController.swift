@@ -43,6 +43,10 @@ class ViewController: NSViewController, NSWindowDelegate {
         self.resetGame()
     }
     
+    @IBAction func prefsButton(_ sender: Any) {
+        self.showPrefs(self)
+    }
+    
     func tryGuess() {
         let guess = guessInput.stringValue
         if (guessedCorrect) {
@@ -71,12 +75,13 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     func genRandomNumber(firstNum: Int, secondNum: Int) {
+        print("generate random number")
         numberToBeGuessed = Int.random(in: firstNum...secondNum)
         guideLabel.stringValue = "A random number between \(firstNum) and \(secondNum) has been generated. Can you guess it?"
         feedbackLabel.stringValue = "To guess, type a number in the text field and press the \"Guess\" button."
         triesLabel.stringValue = "Times guessed: 0"
         tries = 0
-        // print("The number is \(numberToBeGuessed).")
+        print("The number is \(numberToBeGuessed).")
     }
     
     func updateTries() {
@@ -87,6 +92,13 @@ class ViewController: NSViewController, NSWindowDelegate {
     func resetGame() {
         guessedCorrect = false
         self.genRandomNumber(firstNum: 0, secondNum: 10)
+    }
+    
+    func showPrefs(_ sender: AnyObject) {
+        print("display preferences")
+        let theSB = NSStoryboard(name: "Main", bundle: nil)
+        let thePVC: PrefsViewController = theSB.instantiateController(withIdentifier: "prefsViewController") as! PrefsViewController
+        self.presentAsSheet(thePVC)
     }
     
     override func viewDidLoad() {
@@ -107,6 +119,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     func windowShouldClose(_ sender: NSWindow) -> Bool {
+        print("terminate app")
         NSApplication.shared.terminate(self)
         return true
     }
