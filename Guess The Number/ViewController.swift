@@ -13,6 +13,12 @@ extension String {
     }
 }
 
+extension ViewController: PrefsDelegate {
+    func sendPrefValues(sendMinNum: Int, sendMaxNum: Int, sendTriesOn: Bool, sendMaxTries: Int) {
+        applyPrefs(applyMinNum: sendMinNum, applyMaxNum: sendMaxNum, applyTriesOn: sendTriesOn, applyMaxTries: sendMaxTries)
+    }
+}
+
 class ViewController: NSViewController, NSWindowDelegate {
     
     @IBAction func guessMenuBar(_ sender: NSMenuItem) {
@@ -20,12 +26,8 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func resetMenuBar(_ sender: NSMenuItem) {
-        self.resetGame()
+        self.resetGame(minRange: minNumber, maxRange: maxNumber)
     }
-
-    var numberToBeGuessed = 0
-    var guessedCorrect = false
-    var tries = 0
     
     @IBOutlet weak var guessInput: NSTextField!
     
@@ -40,16 +42,25 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func resetButton(_ sender: Any) {
-        self.resetGame()
+        self.resetGame(minRange: minNumber, maxRange: maxNumber)
     }
     
     @IBAction func prefsButton(_ sender: Any) {
         self.showPrefs(self)
     }
     
+    var triesEnabled = false
+    var minNumber = 0
+    var maxNumber = 20
+    var maxTries = 3
+
+    var numberToBeGuessed = 0
+    var gameFinished = false
+    var tries = 0
+    
     func tryGuess() {
         let guess = guessInput.stringValue
-        if (guessedCorrect) {
+        if (gameFinished) {
             return
         }
         if (!guess.isInt) {
@@ -59,52 +70,82 @@ class ViewController: NSViewController, NSWindowDelegate {
         let guessInt = guessInput.intValue
         if (guessInt == numberToBeGuessed) {
             feedbackLabel.stringValue = "Correct! The random number was \(numberToBeGuessed)."
-            guessedCorrect = true
+            gameFinished = true
         }
         else if (guessInt > numberToBeGuessed) {
-            feedbackLabel.stringValue = "Too high. The number is lower than \(guessInt)."
+            feedbackLabel.stringValue = "Too big. The number is lower than \(guessInt)."
         }
         else if (guessInt < numberToBeGuessed) {
-            feedbackLabel.stringValue = "Too low. The number is higher than \(guessInt)."
+            feedbackLabel.stringValue = "Too low. The number is bigger than \(guessInt)."
         }
         else {
-            feedbackLabel.stringValue = "Error"
+            print("guessInt: \(guessInt) numberToBeGuessed: \(numberToBeGuessed) guessInput: \(guessInput.stringValue)")
+            feedbackLabel.stringValue = "Unknown error."
             return
         }
         self.updateTries()
+        if (triesEnabled && tries <= 0 && !gameFinished) {
+            feedbackLabel.stringValue = "You lost! You used up all your tries. The correct number was \(numberToBeGuessed)."
+            gameFinished = true
+        }
     }
     
     func genRandomNumber(firstNum: Int, secondNum: Int) {
-        print("generate random number")
+        //print("generate random number")
         numberToBeGuessed = Int.random(in: firstNum...secondNum)
+        //print("firstNum: \(firstNum) secondNum: \(secondNum)")
+        if (triesEnabled) {
+            tries = maxTries
+            triesLabel.stringValue = "Tries left: \(tries)"
+        }
+        else {
+            tries = 0
+            triesLabel.stringValue = "Times guessed: \(tries)"
+        }
+        //print("The number is \(numberToBeGuessed).")
         guideLabel.stringValue = "A random number between \(firstNum) and \(secondNum) has been generated. Can you guess it?"
         feedbackLabel.stringValue = "To guess, type a number in the text field and press the \"Guess\" button."
-        triesLabel.stringValue = "Times guessed: 0"
-        tries = 0
-        print("The number is \(numberToBeGuessed).")
     }
     
     func updateTries() {
-        tries += 1
-        triesLabel.stringValue = "Times guessed: \(tries)"
+        if (triesEnabled) {
+            tries -= 1
+            triesLabel.stringValue = "Tries left: \(tries)"
+        }
+        else {
+            tries += 1
+            triesLabel.stringValue = "Times guessed: \(tries)"
+        }
     }
     
-    func resetGame() {
-        guessedCorrect = false
-        self.genRandomNumber(firstNum: 0, secondNum: 10)
+    func resetGame(minRange: Int, maxRange: Int) {
+        //print("min \(minRange) max \(maxRange)")
+        gameFinished = false
+        self.genRandomNumber(firstNum: minRange, secondNum: maxRange)
+    }
+    
+    func applyPrefs(applyMinNum: Int, applyMaxNum: Int, applyTriesOn: Bool, applyMaxTries: Int) {
+        minNumber = applyMinNum
+        maxNumber = applyMaxNum
+        triesEnabled = applyTriesOn
+        maxTries = applyMaxTries
+        //print("\(minNumber) \(maxNumber) \(triesEnabled) \(maxTries)")
+        resetGame(minRange: minNumber, maxRange: maxNumber)
     }
     
     func showPrefs(_ sender: AnyObject) {
         print("display preferences")
-        let theSB = NSStoryboard(name: "Main", bundle: nil)
-        let thePVC: PrefsViewController = theSB.instantiateController(withIdentifier: "prefsViewController") as! PrefsViewController
-        self.presentAsSheet(thePVC)
+        let thisSB = NSStoryboard(name: "Main", bundle: nil)
+        let prefsVC: PrefsViewController = thisSB.instantiateController(withIdentifier: "prefsViewController") as! PrefsViewController
+        prefsVC.prefsDelegate = self
+        self.presentAsSheet(prefsVC)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.genRandomNumber(firstNum: 0, secondNum: 10)
+        //print("loading view...")
+        self.resetGame(minRange: minNumber, maxRange: maxNumber)
     }
 
     override var representedObject: Any? {
@@ -119,10 +160,9 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     func windowShouldClose(_ sender: NSWindow) -> Bool {
-        print("terminate app")
+        //print("terminate app")
         NSApplication.shared.terminate(self)
         return true
     }
-    
 }
 
