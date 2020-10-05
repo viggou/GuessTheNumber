@@ -16,9 +16,9 @@
     
     NSString *stringFromSecondChar;
     
-    NSString *firstChar;
+    NSString *firstChar = [partialString substringToIndex:1];
     
-    if ([partialString length] > 1) {
+    if ([partialString length] > 1 && [firstChar isEqualToString:@"-"]) {
         stringFromSecondChar = [partialString substringFromIndex:1];
     }
     else {
@@ -27,13 +27,14 @@
     
     NSScanner *scanner = [NSScanner scannerWithString:stringFromSecondChar];
     
-    firstChar = [partialString substringToIndex:1];
-    
-    if ([partialString length] == 1 && [firstChar containsString:@"-"]) {
+    if ([partialString length] == 1 && [firstChar isEqualToString:@"-"]) {
         return YES;
     }
+    else if ([partialString length] >= 1 && [stringFromSecondChar containsString:@"-"]) {
+        return NO;
+    }
     
-    if ([partialString containsString:@"-"]) {
+    if ([firstChar isEqualToString:@"-"]) {
         if (!([scanner scanInt:0] && [scanner isAtEnd])) {
             return NO;
         }
