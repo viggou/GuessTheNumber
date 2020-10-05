@@ -25,7 +25,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <action selector="showPrefs:" target="Ady-hI-5gd" id="DQG-j7-I9c"/>
+                                                <action selector="prefsMenuItem:" target="Ady-hI-5gd" id="6tN-58-PGI"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -198,6 +198,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="510" y="453" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1097"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -218,7 +219,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="269"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bKp-oC-Qng">
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKp-oC-Qng">
                                 <rect key="frame" x="186" y="171" width="108" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="108" id="RHp-Be-5WG"/>
@@ -229,6 +230,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="formatter" destination="KLd-sP-aLv" id="1a5-jA-MFP"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v4F-hK-1Al">
                                 <rect key="frame" x="296" y="164" width="78" height="32"/>
@@ -343,6 +347,7 @@ DQ
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="KLd-sP-aLv" customClass="TextFieldFormatter"/>
             </objects>
             <point key="canvasLocation" x="75" y="654.5"/>
         </scene>
@@ -368,7 +373,7 @@ DQ
                                     <action selector="closeButton:" target="wZD-yH-AcH" id="qrK-1L-JcB"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IUj-W5-e3J">
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUj-W5-e3J">
                                 <rect key="frame" x="197" y="117" width="87" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="87" id="jU2-AT-v9w"/>
@@ -379,8 +384,11 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="formatter" destination="f8m-s0-qiV" id="vry-eG-q1u"/>
+                                </connections>
                             </textField>
-                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7A-q4-HXa">
+                            <textField verticalHuggingPriority="750" ambiguous="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7A-q4-HXa">
                                 <rect key="frame" x="197" y="87" width="87" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="LEE-qb-cfy"/>
@@ -391,6 +399,9 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="formatter" destination="f8m-s0-qiV" id="QC2-yh-T2l"/>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ifk-JT-gpI">
                                 <rect key="frame" x="79" y="120" width="112" height="16"/>
@@ -412,7 +423,7 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ajR-h1-UeE">
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajR-h1-UeE">
                                 <rect key="frame" x="197" y="57" width="87" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KT5-mS-UQf"/>
@@ -423,6 +434,9 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="formatter" destination="f8m-s0-qiV" id="q4F-br-s9w"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tBm-32-kRl">
                                 <rect key="frame" x="139" y="59" width="52" height="18"/>
@@ -482,6 +496,7 @@ DQ
                     </connections>
                 </viewController>
                 <customObject id="vlR-ih-4fz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="f8m-s0-qiV" customClass="TextFieldFormatter"/>
             </objects>
             <point key="canvasLocation" x="117.5" y="958.5"/>
         </scene>

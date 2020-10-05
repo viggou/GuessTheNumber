@@ -29,6 +29,10 @@ class ViewController: NSViewController, NSWindowDelegate {
         self.resetGame(minRange: minNumber, maxRange: maxNumber)
     }
     
+    @IBAction func prefsMenuItem(_ sender: NSMenuItem) {
+        showPrefs(self)
+    }
+    
     @IBOutlet weak var guessInput: NSTextField!
     
     @IBOutlet weak var guideLabel: NSTextField!
@@ -91,9 +95,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     func genRandomNumber(firstNum: Int, secondNum: Int) {
-        //print("generate random number")
         numberToBeGuessed = Int.random(in: firstNum...secondNum)
-        //print("firstNum: \(firstNum) secondNum: \(secondNum)")
         if (triesEnabled) {
             tries = maxTries
             triesLabel.stringValue = "Tries left: \(tries)"
@@ -102,7 +104,6 @@ class ViewController: NSViewController, NSWindowDelegate {
             tries = 0
             triesLabel.stringValue = "Times guessed: \(tries)"
         }
-        //print("The number is \(numberToBeGuessed).")
         guideLabel.stringValue = "A random number between \(firstNum) and \(secondNum) has been generated. Can you guess it?"
         feedbackLabel.stringValue = "To guess, type a number in the text field and press the \"Guess\" button."
     }
@@ -119,7 +120,6 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     func resetGame(minRange: Int, maxRange: Int) {
-        //print("min \(minRange) max \(maxRange)")
         gameFinished = false
         self.genRandomNumber(firstNum: minRange, secondNum: maxRange)
     }
@@ -129,12 +129,10 @@ class ViewController: NSViewController, NSWindowDelegate {
         maxNumber = applyMaxNum
         triesEnabled = applyTriesOn
         maxTries = applyMaxTries
-        //print("\(minNumber) \(maxNumber) \(triesEnabled) \(maxTries)")
         resetGame(minRange: minNumber, maxRange: maxNumber)
     }
     
     func showPrefs(_ sender: AnyObject) {
-        print("display preferences")
         let thisSB = NSStoryboard(name: "Main", bundle: nil)
         let prefsVC: PrefsViewController = thisSB.instantiateController(withIdentifier: "prefsViewController") as! PrefsViewController
         prefsVC.prefsDelegate = self
@@ -144,7 +142,6 @@ class ViewController: NSViewController, NSWindowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //print("loading view...")
         self.resetGame(minRange: minNumber, maxRange: maxNumber)
     }
 
@@ -160,7 +157,6 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     func windowShouldClose(_ sender: NSWindow) -> Bool {
-        //print("terminate app")
         NSApplication.shared.terminate(self)
         return true
     }
