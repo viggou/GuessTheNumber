@@ -49,11 +49,37 @@ class PrefsViewController: NSViewController {
             alert.runModal()
             return
         }
+        
         prefsMinNum = Int(minNumTextField.intValue)
         prefsMaxNum = Int(maxNumTextField.intValue)
         prefsTriesEnabled = triesOn
         prefsMaxTries = Int(triesTextField.intValue)
+        
+        if (prefsMinNum >= prefsMaxNum) {
+            let alert = NSAlert()
+            alert.messageText = "Error"
+            alert.informativeText = "Minimum number can't be bigger than or equal to the maximum number."
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
+            return
+        }
+        
+        if (prefsTriesEnabled && prefsMaxTries <= 0) {
+            let alert = NSAlert()
+            alert.messageText = "Error"
+            alert.informativeText = "Tries must be bigger than 0."
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
+            return
+        }
+        
         prefsDelegate.sendPrefValues(sendMinNum: prefsMinNum, sendMaxNum: prefsMaxNum, sendTriesOn: prefsTriesEnabled, sendMaxTries: prefsMaxTries)
+        self.dismiss(self)
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(self)
     }
     
