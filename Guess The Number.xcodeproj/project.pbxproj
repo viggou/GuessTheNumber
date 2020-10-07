@@ -16,7 +16,6 @@
 		E4B4FBEB252716EC00FD0548 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B4FBEA252716EC00FD0548 /* PrefsViewController.swift */; };
 		E4E7417B2526A27100DF26D5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E4E7417A2526A27100DF26D5 /* README.md */; };
 		E4EDBB39252A7AA300D821BB /* TextFieldFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EDBB38252A7AA300D821BB /* TextFieldFormatter.m */; };
-		E4EDBB48252B0D4D00D821BB /* Guess The Number in Resources */ = {isa = PBXBuildFile; fileRef = E4EDBB47252B0D4D00D821BB /* Guess The Number */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 		E4EDBB37252A7AA300D821BB /* TextFieldFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldFormatter.h; sourceTree = "<group>"; };
 		E4EDBB38252A7AA300D821BB /* TextFieldFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldFormatter.m; sourceTree = "<group>"; };
 		E4EDBB43252A7F8E00D821BB /* Guess The Number-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Guess The Number-Bridging-Header.h"; sourceTree = "<group>"; };
-		E4EDBB47252B0D4D00D821BB /* Guess The Number */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Guess The Number"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 				E40B6B852526760A006B3243 /* Info.plist */,
 				E40B6B862526760A006B3243 /* Guess_The_Number.entitlements */,
 				E4EDBB43252A7F8E00D821BB /* Guess The Number-Bridging-Header.h */,
-				E4EDBB47252B0D4D00D821BB /* Guess The Number */,
 			);
 			path = "Guess The Number";
 			sourceTree = "<group>";
@@ -245,7 +242,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E7417B2526A27100DF26D5 /* README.md in Resources */,
-				E4EDBB48252B0D4D00D821BB /* Guess The Number in Resources */,
 				E40B6B812526760A006B3243 /* Assets.xcassets in Resources */,
 				E40B6B842526760A006B3243 /* Main.storyboard in Resources */,
 			);
