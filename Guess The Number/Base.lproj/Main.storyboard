@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -127,56 +127,6 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="View" id="H8h-7b-M4v">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="View" id="HyV-fh-RgO">
-                                    <items>
-                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Window" id="aUF-d1-5bR">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
-                                    <items>
-                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
-                                            <connections>
-                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Zoom" id="R4o-n2-Eq4">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
-                                        <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Help" id="wpr-3q-Mcd">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
-                                    <items>
-                                        <menuItem title="Guess The Number Help" keyEquivalent="?" allowsKeyEquivalentWhenHidden="YES" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                         </items>
                     </menu>
                     <connections>
@@ -195,6 +145,7 @@
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Guess The Number" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="510" y="453" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1097"/>
@@ -235,7 +186,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v4F-hK-1Al">
-                                <rect key="frame" x="296" y="164" width="78" height="32"/>
+                                <rect key="frame" x="295" y="164" width="80" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="Aga-q5-BYJ"/>
                                     <constraint firstAttribute="height" constant="21" id="EPu-Bo-833"/>
@@ -264,7 +215,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ger-aQ-1gs">
-                                <rect key="frame" x="202" y="117" width="76" height="32"/>
+                                <rect key="frame" x="201" y="117" width="78" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CJq-jr-aGg"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="64" id="Esv-g3-jHg"/>
@@ -307,7 +258,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FmY-ZJ-heI">
-                                <rect key="frame" x="385" y="13" width="81" height="32"/>
+                                <rect key="frame" x="384" y="13" width="83" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="RZb-vN-Ep4"/>
                                     <constraint firstAttribute="width" constant="69" id="XI9-d6-IfK"/>
@@ -318,6 +269,20 @@ DQ
                                 </buttonCell>
                                 <connections>
                                     <action selector="prefsButton:" target="XfG-lQ-9wD" id="dwz-nN-S2j"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="48w-Af-ohn">
+                                <rect key="frame" x="13" y="14" width="83" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="fOJ-dx-1Kx"/>
+                                    <constraint firstAttribute="height" constant="21" id="ylK-zU-3Yc"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="About" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vH3-gn-4m9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="aboutButton:" target="XfG-lQ-9wD" id="Csp-SP-fpm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -331,8 +296,10 @@ DQ
                             <constraint firstItem="tLB-vE-NqI" firstAttribute="top" secondItem="bKp-oC-Qng" secondAttribute="bottom" constant="-18" id="N9C-Ta-mNY"/>
                             <constraint firstItem="v4F-hK-1Al" firstAttribute="top" secondItem="bKp-oC-Qng" secondAttribute="bottom" constant="-21" id="Rmm-lC-hK7"/>
                             <constraint firstItem="4gJ-nA-BwD" firstAttribute="leading" secondItem="ger-aQ-1gs" secondAttribute="trailing" constant="-154" id="Wbn-Ss-ewH"/>
+                            <constraint firstItem="48w-Af-ohn" firstAttribute="top" secondItem="ger-aQ-1gs" secondAttribute="bottom" constant="82" id="bUn-Qu-VtD"/>
                             <constraint firstItem="ger-aQ-1gs" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="bUx-vr-rXJ"/>
                             <constraint firstItem="bKp-oC-Qng" firstAttribute="top" secondItem="4gJ-nA-BwD" secondAttribute="bottom" constant="8" symbolic="YES" id="fRs-2O-EgV"/>
+                            <constraint firstItem="ger-aQ-1gs" firstAttribute="leading" secondItem="48w-Af-ohn" secondAttribute="trailing" constant="119" id="jO7-q3-YsA"/>
                             <constraint firstItem="FmY-ZJ-heI" firstAttribute="top" secondItem="ger-aQ-1gs" secondAttribute="bottom" constant="83" id="ly4-by-wlm"/>
                             <constraint firstItem="4eL-3T-gV3" firstAttribute="leading" secondItem="ger-aQ-1gs" secondAttribute="trailing" constant="-168" id="mVR-ez-bOA"/>
                             <constraint firstItem="ger-aQ-1gs" firstAttribute="top" secondItem="4gJ-nA-BwD" secondAttribute="bottom" constant="55" id="qhx-vf-VUA"/>
@@ -425,7 +392,7 @@ DQ
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tBm-32-kRl">
-                                <rect key="frame" x="139" y="59" width="52" height="18"/>
+                                <rect key="frame" x="139" y="59" width="50" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="1oK-5j-q9d"/>
                                     <constraint firstAttribute="height" constant="14" id="T7K-dL-mM8"/>
@@ -451,7 +418,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4TN-L4-rGD">
-                                <rect key="frame" x="196" y="13" width="89" height="32"/>
+                                <rect key="frame" x="195" y="13" width="91" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="SQ5-eN-Mjl"/>
                                     <constraint firstAttribute="width" constant="77" id="gKm-MW-VAu"/>
@@ -465,7 +432,7 @@ DQ
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-iB-AD3">
-                                <rect key="frame" x="75" y="13" width="82" height="32"/>
+                                <rect key="frame" x="74" y="13" width="84" height="32"/>
                                 <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMS-Kd-6nR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>

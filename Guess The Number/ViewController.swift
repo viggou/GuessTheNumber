@@ -53,6 +53,15 @@ class ViewController: NSViewController, NSWindowDelegate {
         self.showPrefs(self)
     }
     
+    @IBAction func aboutButton(_ sender: Any) {
+        let alert = NSAlert()
+        alert.messageText = "About"
+        alert.informativeText = "This is a small project I made to learn Swift. Thanks for playing!"
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
+    }
+    
     var triesEnabled = false
     var minNumber = 0
     var maxNumber = 20
@@ -74,12 +83,21 @@ class ViewController: NSViewController, NSWindowDelegate {
         let guessInt = guessInput.intValue
         if (guessInt == numberToBeGuessed) {
             feedbackLabel.stringValue = "Correct! The random number was \(numberToBeGuessed)."
+            guessInput.isEnabled = false
             gameFinished = true
         }
         else if (guessInt > numberToBeGuessed) {
-            feedbackLabel.stringValue = "Too big. The number is lower than \(guessInt)."
+            if (guessInt > maxNumber) {
+                feedbackLabel.stringValue = "\(guessInt) is bigger than the maximum number (\(maxNumber))."
+                return
+            }
+            feedbackLabel.stringValue = "Too big. The number is smaller than \(guessInt)."
         }
         else if (guessInt < numberToBeGuessed) {
+            if (guessInt < minNumber) {
+                feedbackLabel.stringValue = "\(guessInt) is smaller than the minimum number (\(minNumber))."
+                return
+            }
             feedbackLabel.stringValue = "Too low. The number is bigger than \(guessInt)."
         }
         else {
@@ -90,6 +108,7 @@ class ViewController: NSViewController, NSWindowDelegate {
         self.updateTries()
         if (triesEnabled && tries <= 0 && !gameFinished) {
             feedbackLabel.stringValue = "You lost! You used up all your tries. The correct number was \(numberToBeGuessed)."
+            guessInput.isEnabled = false
             gameFinished = true
         }
     }
@@ -121,6 +140,9 @@ class ViewController: NSViewController, NSWindowDelegate {
     
     func resetGame(minRange: Int, maxRange: Int) {
         gameFinished = false
+        guessInput.isEnabled = true
+        guessInput.stringValue = ""
+        guessInput.becomeFirstResponder()
         self.genRandomNumber(firstNum: minRange, secondNum: maxRange)
     }
     
